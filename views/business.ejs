@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <%- include partials/headlinks %>
+</head>
+
+<body>
+
+  <!-- Partial header included below -->
+  <%- include partials/header %>
+
+
+
+
+    <section style="background-color: #e9ecefb3;">
+
+      <div class="fullheight pb-5 pt-5">
+
+        <div class="container">
+
+
+            <div class="row">
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if(content.length){ for(var i = 0; i< content.length; i++) {%>
+      <tr>
+        <th scope="row"><%= (i+1) %></th>
+        <td><%= content[i].name%></td>
+        <td><%= content[i].number%></td>
+        <td><%= content[i].email%></td>
+        <td><a href="/update?id=<%= content[i]._id%>">update</a></td>
+        <!-- <td><a href="/delete?id=<%= content[i]._id%>">Delete</a></td> -->
+
+        <!-- <td><button class="update" value="<%= content[i]._id%>">update</button></td> -->
+        <td><button class="delete" value="<%= content[i]._id%>">Delete</button></td>
+
+      </tr>
+      <% } }else{ %>
+      <tr>
+        <td>No content ever existed.</td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+
+</div>
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Partial Footer included below -->
+<%- include partials/footer %>
+
+
+
+</body>
+
+</html>
